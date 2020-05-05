@@ -1,8 +1,14 @@
 .App {
   display: flex;
+  flex-direction: column;
   width: 100%;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background-color: #eee;
+}
+
+.plans {
+  display: flex;
+  align-items: center;
 }

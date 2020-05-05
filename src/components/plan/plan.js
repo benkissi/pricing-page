@@ -1,9 +1,10 @@
 import React from "react";
+import Feature from "../feature/feature";
 import "./plan.css";
 
 function Plan(props) {
   return (
-    <div className="wrapper">
+    <div className={`wrapper ${props.recommended ? "recommended" : ""}`}>
       <div className="plan-header">{props.name}</div>
       <div className="pricing">
         <span className="symbol">$</span>
@@ -12,13 +13,11 @@ function Plan(props) {
       </div>
       <div>{props.description}</div>
       <div className="features">
-        <ul>
-          {props.features.map((feature) => {
-            return <li>{feature}</li>;
-          })}
-        </ul>
+        {props.features.map((feature, index) => (
+          <Feature feature={feature} key={index} />
+        ))}
       </div>
-      <button>Subscribe</button>
+      <button onClick={() => props.onSubscribe(props.name)}>Subscribe</button>
     </div>
   );
 }

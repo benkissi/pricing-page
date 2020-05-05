@@ -1,8 +1,8 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  margin: 20px;
-  width: 400px;
+  margin: 2px;
+  width: 300px;
   height: 500px;
   background-color: white;
   align-items: center;
@@ -19,6 +19,7 @@ button {
   border: 1px solid black;
   border-radius: 4px;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .plan-header {
@@ -43,4 +44,25 @@ button {
 
 .features {
   width: 100%;
+}
+
+.recommended {
+  border: 2px Solid #3dcf8e;
+  height: 600px;
+}
+
+.recommended button {
+  background-color: #3dcf8e;
+  border: none;
+  color: white;
+}
+
+.feature {
+  display: flex;
+  margin-top: 20px;
+}
+
+.feature img {
+  width: 15px;
+  margin-right: 10px;
 }
