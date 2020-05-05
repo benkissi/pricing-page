@@ -1,6 +1,6 @@
-const fetchPricingPlan = () => {
+export const fetchPricingPlan = () => {
   return new Promise((resolve, reject) => {
-    setImmeOut(() => {
+    setTimeout(() => {
       resolve([
         {
           id: "1",

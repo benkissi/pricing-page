@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { fetchPricingPlan } from "./api";
+import Plan from "./components/plan/plan";
+
+import "./App.css";
 
 function App() {
+  const [state, setState] = useState({
+    plans: [],
+    selectedPlan: null,
+  });
+
+  useEffect(async () => {
+    const plans = await fetchPricingPlan();
+    setState((prevState) => {
+      return {
+        ...prevState,
+        plans,
+      };
+    });
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>App</div>
+      {state.plans ? state.plans.map((plan) => <Plan {...plan} />) : ""}
     </div>
   );
 }
